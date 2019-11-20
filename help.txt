@@ -1,0 +1,23 @@
+#######################		############		####			####
+#######################		############		####			####
+ 	 #####			####			####			####
+	 #####			####			####			####
+	 #####			####			####			####
+ 	 #####			############		####			####
+	 #####		     	############		####			####
+	 #####		      	####			####			####
+	 #####			####			####			####
+	 #####			############		############		############
+	 #####		  	############		############		############(Version 0.1).
+
+
+
+
+Usage:tell -d[option] file1 file2
+The output will be stdout can be written any optional file
+Options:              
+  -d, --differnece             compare two files and print differnece          
+  -i,--ignore-case             ignore casenstivity and tell the differnce
+  -c,--count		       count of the differnece
+  -h, --help                   help
+  -v, --version                Telldiff version

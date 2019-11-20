@@ -1,0 +1,87 @@
+#!/bin/bash
+function tell(){
+	if [[ "$1" == "-d" ]] ;then
+		if [[ $2 -ne ""  ]] &&  [[ $3 -ne "" ]];then
+			file1=$2
+			file2=$3
+			tdiff $file1 $file2
+		else
+			cat /home/deepu/project/telldiff/help.txt
+		fi
+
+	elif [[ "$1" == "-i" ]];
+	then
+		if [[ $2 != ""  ]] &&  [[ $3 != "" ]];then
+			file1=$2
+                        file2=$3
+			idiff $file1 $file2
+		else 
+			cat /home/deepu/project/telldiff/help.txt
+		fi
+	
+	elif [[ "$1" == "-c" ]];
+	then
+		if [[ $2 != ""  ]] &&  [[ $3 != "" ]];then
+			file1=$2
+                        file2=$3
+			countdiff $file1 $file2
+		else
+			cat /home/deepu/project/telldiff/help.txt
+		fi
+	elif [[ "$1" == "-v" ]]  || [[ "$1" == "--version" ]];
+	then
+		echo "Tell Version 0.1"
+	elif [[ "$1" == "-h" ]]  || [[ "$1" == "--help" ]];
+	then
+		echo "Telldiff is an Opensource Project Developed by Arygami cloud Services ltd"
+
+		echo -e "Syntax Usage :telldiff -d [file1] [file2] \n\n"
+
+		cat /home/deepu/project/telldiff/help.txt
+
+	elif [[ "$1" == "" ]] || [[ $2 == "" ]] ||  [[ $3 == "" ]];
+	then
+		cat /home/deepu/project/telldiff/help.txt
+	fi
+
+}
+
+
+function tdiff(){
+	for ar1 in $(cat $file1);
+	do
+		ar2=$(cat $file2 | grep "$ar1");
+		if [ -z "$ar2" ];
+		then
+			echo "$ar1"
+		fi
+	done
+}
+
+
+function idiff(){
+	for arg1 in $(cat $file1);
+	do
+		arg2=$(cat $file2 | grep -i "$arg1")
+		echo $arg2
+	done
+
+}
+
+function countdiff(){
+	for arg1 in $(cat $file1);
+        do
+		i=0
+                arg2=$(cat $file2 | grep  "$arg1" | wc -l)
+		
+		i=$((i+1))
+
+                echo "The Number of lines missing is from $file1  in $file2 is:$i"
+        done
+}
+
+
+tell $1 $2 $3
+
+
+
