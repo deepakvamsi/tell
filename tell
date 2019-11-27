@@ -16,7 +16,7 @@ function tell(){
                         file2=$3
 			idiff $file1 $file2
 		else 
-			cat /home/deepu/project/telldiff/help.txt
+			cat /etc/tell/help.txt
 		fi
 	
 	elif [[ "$1" == "-c" ]];
@@ -26,7 +26,7 @@ function tell(){
                         file2=$3
 			countdiff $file1 $file2
 		else
-			cat /home/deepu/project/telldiff/help.txt
+			cat /etc/tell/help.txt
 		fi
 	elif [[ "$1" == "-v" ]]  || [[ "$1" == "--version" ]];
 	then
@@ -37,11 +37,11 @@ function tell(){
 
 		echo -e "Syntax Usage :telldiff -d [file1] [file2] \n\n"
 
-		cat /home/deepu/project/telldiff/help.txt
+		cat /etc/tell/help.txt
 
 	elif [[ "$1" == "" ]] || [[ $2 == "" ]] ||  [[ $3 == "" ]];
 	then
-		cat /home/deepu/project/telldiff/help.txt
+		cat /etc/tell/help.txt
 	fi
 
 }
@@ -73,9 +73,7 @@ function countdiff(){
         do
 		i=0
                 arg2=$(cat $file2 | grep  "$arg1" | wc -l)
-		
 		i=$((i+1))
-
                 echo "The Number of lines missing is from $file1  in $file2 is:$i"
         done
 }
