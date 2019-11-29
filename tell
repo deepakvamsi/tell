@@ -6,7 +6,7 @@ function tell(){
 			file2=$3
 			tdiff $file1 $file2
 		else
-			cat /home/deepu/project/telldiff/help.txt
+			cat /etc/tell/help.txt
 		fi
 
 	elif [[ "$1" == "-i" ]];
