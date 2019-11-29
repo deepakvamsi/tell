@@ -1,5 +1,5 @@
 # tell
-The tell version gives different functionality 
+The tell version gives difference functionality  between two files
 
 
 sudo chmod +x install.sh
